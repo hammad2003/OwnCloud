@@ -1,23 +1,32 @@
 # OwnCloud
 
-# Instal·lació del contenidor
-```console
+# Instalación del contenedor
+
+Para instalar el contenedor procedemos a poner el siguiente comando junta al nombre y la versión del SO que queremos instalar.
+
+```
 lxc launch ubuntu:20.04 elmeucontenidor
 ```
 
-## Engegar el contenidor (si està aturat)
-```console
+## Encender el contenedor
+Para encender nuestro contenedor procedemos a realizar el siguiente comando.
+
+```
 lxc start elmeucontenidor
 ```
 
-## Executar el contenidor
-```console
+## Ejecutar el contenedor
+Una vez ya encendido, vamos a ejecutarlo con el siguiente comando.
+
+```
 lxc exec elmeucontenidor bash
 ```
 
-## Instal·lar apache2, mysql i algunes llibreries al contenidor
+## Instalar apache2, mysql y algunas librerías en el contenedor
 
-```console
+Cuando ya hayamos entrado dentro vamos a proceder a actualizar el listado de paquetes y a descargar y instalar el `apache2`, `mysql` y algunas `librerías` para que todo funcione correctamente.
+
+```
  apt update
  apt upgrade
  apt install apache2
@@ -26,54 +35,63 @@ lxc exec elmeucontenidor bash
  apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 
-## Configurem apache2
+## Configuramos apache2
 
-Activem el mòdul `proxy_fcgi`:
-```console
+Activamos el módulo `proxy_fcgi`:
+
+```
 a2enmod proxy_fcgi
 ```
 
-Activem la configuració de `php-fpm`:
-```console
+Activamos la configuración de `php-fpm`:
+
+```
 a2enconf php-fpm
 ```
-Reiniciem el servidor:
-```console
+
+Reiniciamos el servidor:
+
+```
 systemctl restart apache2
 ```
 
-## Creem una base de dades i un usuari al MySQL
+## Creamos una base de datos y un usuario en MySQL
 
 
-Accedim al `MySQL` amb l'usuari `root`
-```console
+Accedemos a `MySQL` con el usuario `root`
+
+```
 mysql -u root
 ```
 
-Creem la base de dades amb el nom que volgueu, en el meu cas `lamevabasededades`
-```console
-CREATE DATABASE lamevabasededades;
+Creamos la base de datos con el nombre que desee, en mi caso `mibasededades`
+
+```
+CREATE DATABASE mibasededades;
 ```
 
-Creem un usuari anomenat `elmeuusuari`, li posem el password `elmeupassword` i li donem privilegis sobre la nostra base de dades `lamevabasededades`
+Creamos un usuario llamado `miusuario`, le ponemos el password `mipassword` y le damos privilegios sobre nuestra base de datos `mibasededades`
 
-```console
-CREATE USER 'elmeuusuari'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
-```console
-GRANT ALL ON lamevabasededades.* to 'elmeuusuari'@'localhost';
+CREATE USER 'miusuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
-```console
+
+```
+GRANT ALL DONDE mibasededades.* to 'miusuario'@'localhost';
+```
+
+```
 exit
 ```
 
-Comprovem que tot ha funcionat bé
-```console
-mysql -u elmeuusuari -p
-```
-També pots veure la IP del contenidor fent `lxc list`
+Comprobamos que todo ha funcionado bien
 
-## Descomprimir el archiu .zip
+```
+mysql -u mi usuario -p
+```
+
+## Descomprimir el archivo .zip
+Para poder descomprimir nuestro archivo .zip realizaremos los siguientes comandos.
 
 ```
 apt update
@@ -86,11 +104,14 @@ wget https://download.owncloud.org/community/owncloud-complete-20210721.zip
 
 unzip owncloud-complete-20210721.zip
 ```
-## Accedim a l'instal·lador de l'aplicació mitjançant el navegador web
-Primer averiguem la nostra ip i despres aquesta la posem en el nostre navegador
+
+## Accedemos al instalador de la aplicación mediante el navegador web
+Primero averiguamos nuestra IP y después esta la ponemos en nuestro navegador.
 
 ```
 ip -c a
+
+También puedes ver la IP del contenedor haciendo `lxc list` des de fuera del contenedor.
 
 http://10.161.122.237 (en el navegador)
 ```
