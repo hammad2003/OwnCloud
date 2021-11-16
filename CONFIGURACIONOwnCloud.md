@@ -2,7 +2,7 @@
 
 # Configuracion de OwnCloud
 
-Para configurar nuestro OwnClud tendremos que poner la IP que hemos obtenido de nuestra maquina con el comando `ip -c a`, en nuestro navegador y nos llevara al la pagina de nuestro Owncloud y iniciaremos sesión.
+Para configurar nuestro OwnCluod tendremos que poner la IP que hemos obtenido de nuestra maquina con el comando `ip -c a`, en nuestro navegador y nos llevara al la pagina de nuestro Owncloud y iniciaremos sesión.
 
 ![](FOTOS/11.png)
 

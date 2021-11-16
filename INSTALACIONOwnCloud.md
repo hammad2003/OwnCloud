@@ -2,7 +2,7 @@
 
 # Instalación del contenedor
 
-Para instalar el contenedor procedemos a poner el siguiente comando junta al nombre y la versión del SO que queremos instalar.
+Para instalar el contenedor procedemos a poner el siguiente comando junto al nombre y la versión del SO que queremos instalar.
 
 ```
 lxc launch ubuntu:20.04 elmeucontenidor
@@ -105,7 +105,7 @@ wget https://download.owncloud.org/community/owncloud-complete-20210721.zip
 unzip owncloud-complete-20210721.zip
 ```
 
-## Accedemos al instalador de la aplicación mediante el navegador web
+## Accedemos a la Instalación de la aplicación mediante el navegador web
 Primero averiguamos nuestra IP y después esta la ponemos en nuestro navegador.
 
 ```
