@@ -105,6 +105,15 @@ wget https://download.owncloud.org/community/owncloud-complete-20210721.zip
 unzip owncloud-complete-20210721.zip
 ```
 
+## Aplicación de permisos en nuestra aplicación web
+Una vez ya descomprimidos el archivo .zip en el directorio `/var/www/html`, aplicamos los siguientes permisos.
+
+```
+cd /var/www/html
+chmod -R 775 .
+chown -R root:www-data .
+```
+
 ## Accedemos a la Instalación de la aplicación mediante el navegador web
 Primero averiguamos nuestra IP y después esta la ponemos en nuestro navegador.
 
